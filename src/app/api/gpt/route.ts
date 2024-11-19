@@ -109,10 +109,10 @@ goal: Omit<Goal, 'id' | 'progress'>;`
     };
     
     const payload = {
-      model: 'gpt-4o-mini', // 모델명 수정
+      model: 'gpt-4',
       temperature: 0.3,
       messages,
-      response_format: { type: "json_object" } // JSON 응답 형식 지정
+      response_format: { type: "json_object" }
     };
 
     // API 요청 보내기

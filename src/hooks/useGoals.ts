@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Goal } from '@/types';
+import { Goal, Task } from '@/types';
 import { goalsDB } from '@/lib/db';
 
 export function useGoals(nickname: string | null) {
@@ -31,8 +31,9 @@ export function useGoals(nickname: string | null) {
           });
 
           const milestoneProgress = calculateProgress(updatedTasks);
-          const status = milestoneProgress === 100 ? 'completed' :
-                        milestoneProgress > 0 ? 'in_progress' : 'not_started';
+          const status = milestoneProgress === 100 ? 'completed' as const :
+                        milestoneProgress > 0 ? 'in_progress' as const : 
+                        'not_started' as const;
 
           return {
             ...milestone,

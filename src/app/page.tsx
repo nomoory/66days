@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GoalCard } from '@/components/GoalCard/GoalCard';
 import { useGoals } from '@/hooks/useGoals';
@@ -10,7 +10,7 @@ import { goalsDB } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
 import { Goal } from '@/types';
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const [nickname, setNickname] = useState<string | null>(null);
   const [showNicknameModal, setShowNicknameModal] = useState(false);
@@ -254,5 +254,17 @@ export default function Home() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-pulse text-lg font-medium">로딩 중...</div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
