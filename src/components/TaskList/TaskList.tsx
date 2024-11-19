@@ -59,7 +59,7 @@ export function TaskList({ tasks, onTaskComplete, onTaskUpdate, className = '' }
             )}
             {task.dueDate && (
               <p className="text-xs text-gray-500 mt-1">
-                마감일: {task?.dueDate?.toLocaleDateString()}
+                마감일: {new Date(task.dueDate).toLocaleDateString()}
               </p>
             )}
           </div>
