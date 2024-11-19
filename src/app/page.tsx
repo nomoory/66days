@@ -8,6 +8,7 @@ import { NicknameModal } from '@/components/NicknameModal/NicknameModal';
 import { FunLoading } from '@/components/FunLoading/FunLoading';
 import { goalsDB } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
+import { Goal } from '@/types';
 
 export default function Home() {
   const searchParams = useSearchParams();
