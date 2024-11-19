@@ -1,10 +1,10 @@
-import { Goal } from '@/types';
+import { Goal, Milestone } from '@/types';
 import { GoalCardProps } from './types';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { TaskList } from '../TaskList/TaskList';
 
 export function GoalCard({ goal, onEdit, onDelete, className = '' }: GoalCardProps) {
-  const currentMilestone = goal.milestones.find(m => m.status === 'in_progress');
+  const currentMilestone = goal.milestones.find((m: Milestone) => m.status === 'in_progress');
   
   return (
     <div className={`p-4 border rounded-lg shadow-sm ${className}`}>
