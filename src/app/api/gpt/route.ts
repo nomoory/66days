@@ -109,7 +109,7 @@ goal: Omit<Goal, 'id' | 'progress'>;`
     };
     
     const payload = {
-      model: 'gpt-4',
+      model: 'gpt-4o-mini',
       temperature: 0.3,
       messages,
       response_format: { type: "json_object" }
