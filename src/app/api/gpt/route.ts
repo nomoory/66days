@@ -18,6 +18,9 @@ interface OpenAIResponse {
   }[];
 }
 
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
 // Next.js API 라우트 핸들러 이름을 route.ts에 맞게 변경
 export async function POST(request: Request) {
   try {
