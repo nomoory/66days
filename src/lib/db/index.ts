@@ -111,7 +111,7 @@ class GoalsDB {
       
       request.onerror = () => reject(request.error);
       request.onsuccess = () => {
-        const goals = request.result.map(({ userNickname, ...goal }) => goal);
+        const goals = request.result.map(({ ...goal }) => goal);
         resolve(goals);
       };
     });

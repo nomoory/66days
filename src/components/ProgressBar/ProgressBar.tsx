@@ -1,12 +1,18 @@
 import { ProgressBarProps } from './types';
 
-export function ProgressBar({ value, size = 'md', color, className }: ProgressBarProps) {
+export function ProgressBar({ value, size = 'md', color = 'blue', className = '' }: ProgressBarProps) {
+  const heights = {
+    sm: 'h-1',
+    md: 'h-2',
+    lg: 'h-3'
+  };
+
   return (
-    <div className="relative w-full h-2 bg-gray-200 rounded-full">
+    <div className={`relative w-full ${heights[size]} bg-gray-200 rounded-full ${className}`}>
       <div
-        className="absolute h-full bg-blue-500 rounded-full"
+        className={`absolute h-full bg-${color}-500 rounded-full`}
         style={{ width: `${value}%` }}
       />
     </div>
   );
-} 
+}

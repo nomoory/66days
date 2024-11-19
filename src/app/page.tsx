@@ -36,10 +36,8 @@ export default function Home() {
   }, [searchParams]);
 
   useEffect(() => {
-    if (nickname) {
-      loadGoals();
-    }
-  }, [nickname]);
+    loadGoals();
+  }, [loadGoals]);
 
   const handleNicknameSubmit = async (newNickname: string) => {
     await goalsDB.saveUser(newNickname);
